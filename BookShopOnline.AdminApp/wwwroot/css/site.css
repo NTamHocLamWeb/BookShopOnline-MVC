@@ -1,0 +1,120 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/* Đảm bảo thanh sidebar chiếm toàn bộ chiều cao của trang */
+#sidebar {
+    background-color: #000; /* Màu nền đen */
+    color: white; /* Màu chữ trắng */
+    height: 100vh; /* Chiều cao toàn màn hình */
+    position: fixed; /* Cố định vị trí bên trái */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Đảm bảo thanh nằm trên các phần tử khác nếu cần */
+    padding-top: 20px; /* Khoảng cách cho phần nội dung thanh công cụ */
+}
+
+    #sidebar .nav-link {
+        color: white; /* Màu chữ trắng cho các liên kết */
+    }
+
+        #sidebar .nav-link.active {
+            background-color: #444; /* Tạo màu nền nổi bật cho mục đang chọn */
+        }
+
+main {
+    margin-left: 16.66%; /* Đẩy nội dung chính qua phải để không bị sidebar che */
+    padding: 20px;
+}
+
+footer {
+    margin-left: 16.66%; /* Điều chỉnh footer để nó không bị sidebar che */
+}
+
+header {
+    margin-left: 16.66%; /* Điều chỉnh footer để nó không bị sidebar che */
+}
+
+.navbar-nav .img-fluid {
+    width: 40px; /* Kích thước ảnh favicon */
+    height: 40px;
+}
+
+/* Container của thanh tìm kiếm */
+.search-form {
+    position: relative;
+    margin-right: 0;
+    vertical-align: middle;
+    height: 24px;
+    display: flex;
+    align-items: center; /* Căn giữa icon và input theo chiều dọc */
+}
+
+    .search-form i {
+        font-size: 1.25rem;
+        position: absolute;
+        left: 10px; /* Đặt icon cách biên trái 10px */
+        top: 50%;
+        transform: translateY(-50%);
+        color: #212121;
+        cursor: pointer; /* Thay đổi con trỏ khi di chuột lên biểu tượng */
+    }
+
+    .search-form input {
+        width: 0; /* Ban đầu chiều rộng là 0 */
+        height: 100%;
+        padding-left: 35px; /* Khoảng cách với icon tìm kiếm */
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #ccc; /* Thêm viền dưới để dễ nhận biết */
+        outline: none;
+        transition: width 0.4s ease-in-out; /* Hiệu ứng mở rộng chiều rộng */
+        opacity: 0; /* Ẩn input bằng cách thay đổi độ mờ */
+        visibility: hidden; /* Ẩn input bằng cách thay đổi tầm nhìn */
+    }
+
+        .search-form input.show {
+            width: 150px; /* Chiều rộng khi input được hiển thị */
+            opacity: 1; /* Hiển thị input */
+            visibility: visible; /* Hiển thị input */
+        }
+
+        .search-form input::placeholder {
+            color: #aaa; /* Màu placeholder */
+        }
+
+/* Điều chỉnh cho input trong nav */
+.nav-item .search-form {
+    margin-left: 10px; /* Thêm khoảng cách giữa các item */
+}
+
+.nav-item {
+    margin-left: 1.25rem;
+}
+
+.input-group, .asColorPicker-wrap {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}

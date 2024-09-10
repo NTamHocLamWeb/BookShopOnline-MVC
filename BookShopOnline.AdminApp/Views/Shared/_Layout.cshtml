@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - NT-ExBooks</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/BookShopOnline.AdminApp.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+			<div class="container-fluid">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NT-ExBooks</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1">
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+						</li>
+					</ul>
+					
+					<ul class="navbar-nav ms-auto">
+
+						<!-- Calender -->
+						<li class="nav-item d-none d-lg-block">
+							<div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+								<span class="input-group-addon input-group-prepend border-right">
+									<i class="fa-solid fa-calendar-days"></i>
+								</span>
+								<input type="text" class="form-control" fdprocessedid="boe2w9">
+							</div>
+						</li>
+
+						<!-- Search -->
+						<li class="nav-item">
+							<form class="search-form" action="#">
+								<i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+								<input type="search" class="form-control" placeholder="Search here!" title="Search here" id="searchInput" />
+							</form>
+						</li>
+						<!-- Thông báo -->
+						<li class="nav-item dropdown">
+							<a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="far fa-envelope"></i>
+								<span class="count"></span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="countDropdown">
+								<!-- Thêm các thông báo bên trong dropdown -->
+								<li><a class="dropdown-item" href="#">Thông báo 1</a></li>
+								<li><a class="dropdown-item" href="#">Thông báo 2</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="far fa-bell"></i>
+								<span class="count"></span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="countDropdown">
+								<!-- Thêm các thông báo bên trong dropdown -->
+								<li><a class="dropdown-item" href="#">Thông báo 1</a></li>
+								<li><a class="dropdown-item" href="#">Thông báo 2</a></li>
+							</ul>
+						</li>
+
+						<!-- Ảnh favicon -->
+						<li class="nav-item">
+							<img src="~/favicon.ico" alt="User icon" class="img-fluid rounded-circle" style="width: 40px; height: 40px;" />
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Sidebar -->
+			<nav id="sidebar" class="col-md-2 d-none d-md-block bg-dark text-white sidebar">
+				<div class="position-sticky">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<img src="~/favicon.ico" />
+							<a class="nav-link" asp-area="" asp-controller="Customers" asp-action="Index">
+								Myname
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">
+								Dashboard
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Books" asp-action="Index">
+								Books
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Orders" asp-action="Index">
+								Orders
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Customers" asp-action="Index">
+								Customers
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Customers" asp-action="Index">
+								Logout
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<!-- Main content -->
+			<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1 class="h2">Dashboard</h1>
+				</div>
+				@RenderBody()
+			</main>
+		</div>
+	</div>
+	@* <div class="container">
+	<main role="main" class="pb-3">
+	@RenderBody()
+	</main>
+	</div> *@
+
+	<footer class="border-top footer text-muted">
+		<div class="container">
+			&copy; 2024 - BookShopOnline.AdminApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script>
+		document.getElementById('searchIcon').addEventListener('click', function () {
+			var input = document.getElementById('searchInput');
+			if (input.classList.contains('show')) {
+				input.classList.remove('show');
+				input.value = ''; // Xóa giá trị khi ẩn input
+			} else {
+				input.classList.add('show');
+				input.focus(); // Đặt tiêu điểm vào input khi hiển thị
+			}
+		});
+	</script>
+	@await RenderSectionAsync("Scripts", required: false)
+	<div class="datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-bottom" style="top: 130.982px; left: 927.042px; z-index: 10; display: block;">
+		<div class="datepicker-days" style="">
+			<table class="table-condensed">
+				<thead>
+					<tr>
+						<th colspan="7" class="datepicker-title" style="display: none;"></th>
+					</tr>
+					<tr>
+						<th class="prev">«</th>
+						<th colspan="5" class="datepicker-switch">September 2024</th>
+						<th class="next">»</th>
+					</tr>
+					<tr>
+						<th class="dow">Su</th>
+						<th class="dow">Mo</th>
+						<th class="dow">Tu</th>
+						<th class="dow">We</th>
+						<th class="dow">Th</th>
+						<th class="dow">Fr</th>
+						<th class="dow">Sa</th>
+					</tr>
+				</thead>
+				<tbody><tr><td class="old day" data-date="1724544000000">25</td><td class="old day" data-date="1724630400000">26</td><td class="old day" data-date="1724716800000">27</td><td class="old day" data-date="1724803200000">28</td><td class="old day" data-date="1724889600000">29</td><td class="old day" data-date="1724976000000">30</td><td class="old day" data-date="1725062400000">31</td></tr><tr><td class="day" data-date="1725148800000">1</td><td class="day" data-date="1725235200000">2</td><td class="day" data-date="1725321600000">3</td><td class="day" data-date="1725408000000">4</td><td class="day" data-date="1725494400000">5</td><td class="day" data-date="1725580800000">6</td><td class="day" data-date="1725667200000">7</td></tr><tr><td class="day" data-date="1725753600000">8</td><td class="day" data-date="1725840000000">9</td><td class="today active day" data-date="1725926400000">10</td><td class="day" data-date="1726012800000">11</td><td class="day" data-date="1726099200000">12</td><td class="day" data-date="1726185600000">13</td><td class="day" data-date="1726272000000">14</td></tr><tr><td class="day" data-date="1726358400000">15</td><td class="day" data-date="1726444800000">16</td><td class="day" data-date="1726531200000">17</td><td class="day" data-date="1726617600000">18</td><td class="day" data-date="1726704000000">19</td><td class="day" data-date="1726790400000">20</td><td class="day" data-date="1726876800000">21</td></tr><tr><td class="day" data-date="1726963200000">22</td><td class="day" data-date="1727049600000">23</td><td class="day" data-date="1727136000000">24</td><td class="day" data-date="1727222400000">25</td><td class="day" data-date="1727308800000">26</td><td class="day" data-date="1727395200000">27</td><td class="day" data-date="1727481600000">28</td></tr><tr><td class="day" data-date="1727568000000">29</td><td class="day" data-date="1727654400000">30</td><td class="new day" data-date="1727740800000">1</td><td class="new day" data-date="1727827200000">2</td><td class="new day" data-date="1727913600000">3</td><td class="new day" data-date="1728000000000">4</td><td class="new day" data-date="1728086400000">5</td></tr></tbody>
+				<tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot>
+			</table>
+		</div>
+		<div class="datepicker-months" style="display: none;">
+			<table class="table-condensed">
+				<thead>
+					<tr>
+						<th colspan="7" class="datepicker-title" style="display: none;"></th>
+					</tr>
+					<tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2024</th><th class="next">»</th></tr>
+				</thead>
+				<tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month focused active">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody>
+				<tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot>
+			</table>
+		</div>
+		<div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2020-2029</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year">2023</span><span class="year active focused">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year new">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2090</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="decade old">1990</span><span class="decade">2000</span><span class="decade">2010</span><span class="decade active focused">2020</span><span class="decade">2030</span><span class="decade">2040</span><span class="decade">2050</span><span class="decade">2060</span><span class="decade">2070</span><span class="decade">2080</span><span class="decade">2090</span><span class="decade new">2100</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datepicker-centuries" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2900</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="century old">1900</span><span class="century active focused">2000</span><span class="century">2100</span><span class="century">2200</span><span class="century">2300</span><span class="century">2400</span><span class="century">2500</span><span class="century">2600</span><span class="century">2700</span><span class="century">2800</span><span class="century">2900</span><span class="century new">3000</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div>
+	</div>
+</body>
+</html>
